@@ -10,7 +10,12 @@ public class V6_Test {
             while (true) {
                 eventQueue.offer(new EventQueue.Event());
             }
-        },"生产者").start();
+        },"生产者---1").start();
+        new Thread(() -> {
+            while (true) {
+                eventQueue.offer(new EventQueue.Event());
+            }
+        },"生产者---2").start();
         new Thread(() -> {
             while (true) {
                 eventQueue.take();
@@ -20,6 +25,6 @@ public class V6_Test {
                     e.printStackTrace();
                 }
             }
-        },"消费者").start();
+        },"消费者---1").start();
     }
 }

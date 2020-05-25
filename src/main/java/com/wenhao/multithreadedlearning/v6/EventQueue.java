@@ -25,7 +25,7 @@ public class EventQueue {
 
     public void offer(Event event) {
         synchronized (events) {
-            if (events.size() >= max) {
+            while (events.size() >= max) {
                 try {
                     System.out.println("当前线程为"+Thread.currentThread().getName()+ "队列已满");
                     events.wait();
@@ -34,14 +34,16 @@ public class EventQueue {
                 }
             }
             System.out.println("当前线程为"+Thread.currentThread().getName()+"新的队列已经提交");
+            System.out.println("当前线程为"+Thread.currentThread().getName()+"状态为："+Thread.currentThread().getState());
             events.addLast(event);
-            events.notify();
+            events.notifyAll();
         }
     }
 
     public Event take() {
         synchronized (events) {
-            if (events.isEmpty()) {
+            System.out.println("队列容量："+events.size());
+            while (events.isEmpty()) {
                 try {
                     System.out.println("当前线程为"+Thread.currentThread().getName()+"队列为空");
                     events.wait();
@@ -50,7 +52,7 @@ public class EventQueue {
                 }
             }
             Event event = events.removeFirst();
-            this.events.notify();
+            this.events.notifyAll();
             System.out.println("当前线程为"+Thread.currentThread().getName()+"正在处理中");
             return event;
         }
