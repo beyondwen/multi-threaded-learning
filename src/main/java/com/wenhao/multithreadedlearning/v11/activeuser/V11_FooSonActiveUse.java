@@ -1,4 +1,4 @@
-package com.wenhao.multithreadedlearning.v11;
+package com.wenhao.multithreadedlearning.v11.activeuser;
 
 public class V11_FooSonActiveUse {
 
