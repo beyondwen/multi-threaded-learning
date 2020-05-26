@@ -9,7 +9,7 @@ public class V11_Test {
     public static int x = 10;
 
     public static void main(String[] args) {
-        V11_ActiveUse v11_activeUse = new V11_ActiveUse();
+        V11_NotInit v11_activeUse = new V11_NotInit();
         System.out.println(v11_activeUse);
         System.out.println(x);
     }
