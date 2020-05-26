@@ -1,6 +1,7 @@
 package com.wenhao.multithreadedlearning.v10;
 
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 public class LinkedRunnableQueue implements RunnableQueue {
 
@@ -41,6 +42,8 @@ public class LinkedRunnableQueue implements RunnableQueue {
                 }
             }
         }
+        TimeUnit.SECONDS.sleep(20);
+        System.out.println("已处理数量");
         return runnableList.removeFirst();
     }
 

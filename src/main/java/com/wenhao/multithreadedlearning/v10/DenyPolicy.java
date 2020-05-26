@@ -8,7 +8,7 @@ public interface DenyPolicy {
     class DiscardDenyPolicy implements DenyPolicy {
         @Override
         public void reject(Runnable runnable, ThreadPool threadPool) {
-
+            System.out.println("任务拒绝");
         }
     }
 
