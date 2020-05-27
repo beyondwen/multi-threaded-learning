@@ -6,3 +6,4 @@ public class V11_NotInitTest {
         int x = V11_NotInit.x;
     }
 }
+
