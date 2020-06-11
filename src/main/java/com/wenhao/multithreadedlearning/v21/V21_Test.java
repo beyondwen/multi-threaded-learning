@@ -16,7 +16,7 @@ public class V21_Test {
                 while (i < 10) {
                     System.out.println(Thread.currentThread().isInterrupted() + "这是死循环");
                     i++;
-                    Thread.yield();
+                    //Thread.yield();
                     /*try {
                         TimeUnit.SECONDS.sleep(2);
                         System.out.println(Thread.currentThread().isInterrupted() + "这是死循环");
@@ -33,7 +33,7 @@ public class V21_Test {
             public void run() {
                 System.out.println("中断之前");
                 thread1.interrupt();
-                System.out.println("中断之中");
+                //System.out.println("中断之中");
                 thread1.interrupted();
                 System.out.println("中断之后");
                 //thread1.interrupt();
